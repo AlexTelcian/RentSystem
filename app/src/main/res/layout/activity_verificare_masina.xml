@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="DetaliiInchiriere.VerificareKilometrii">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/intrebaretxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="Corespunde numarul de kilometrii cu cel din bordul masinii?"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="27dp">
+
+        </TextView>
+        <TextView
+            android:id="@+id/nrkilometriiAfisat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="50dp"
+            android:textAlignment="center"
+            android:inputType="textPersonName"
+            android:text="nrKilometrii"
+            android:textColor="@color/black"
+            android:textSize="35dp">
+
+        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+        <Button
+            android:id="@+id/buttonDa"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Da"
+            android:layout_marginRight="50dp"
+            android:background="@color/green"
+            android:textColor="@color/white">
+
+        </Button>
+            <Button
+                android:id="@+id/buttonNu"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Nu"
+                android:background="@color/red"
+                android:textColor="@color/white">
+
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

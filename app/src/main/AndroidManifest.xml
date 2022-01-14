@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.rentsystem">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.RentSystem">
+        <activity android:name="DetaliiInchiriere.VerificareRezervor"></activity>
+        <activity android:name="DetaliiInchiriere.VerificareKilometrii" />
+        <activity android:name="DetaliiInchiriere.DetaliiClient" />
+        <activity android:name="Masini.FordFiesta" />
+        <activity android:name="Masini.FordFocus" />
+        <activity android:name="Masini.RenaultClio" />
+        <activity android:name="Masini.RenaultKadjar" />
+        <activity android:name="Masini.RenaultMegane" />
+        <activity android:name="Masini.DaciaSpring" />
+        <activity android:name="Masini.DaciaSandero" />
+        <activity android:name="Masini.DaciaLogan" />
+        <activity android:name=".main.Inchirieri" />
+        <activity android:name=".main.Retur" />
+        <activity android:name=".main.Inchiriaza" />
+        <activity android:name=".main.MainPage" />
+        <activity android:name=".main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

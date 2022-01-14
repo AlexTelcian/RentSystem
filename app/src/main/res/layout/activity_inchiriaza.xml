@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CDCCCC"
+    tools:context=".main.Inchiriaza">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:id="@+id/frameLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="683dp"
+        android:layout_toStartOf="@id/bottomNav"
+
+        />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomNav"
+        android:layout_toStartOf="@id/bottomNav"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottombarbackground"
+        app:menu="@layout/bottom_nav_menu"
+        app:itemTextColor="@color/white"
+        app:itemIconSize="25dp"
+        app:itemIconTint="@color/white"
+        app:labelVisibilityMode="labeled"
+        />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="70dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <Button
+                android:id="@+id/daciaLogan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/buttonshadow"
+                android:text="Dacia Logan"
+                android:textSize="22dp"
+                android:drawableLeft="@mipmap/ic_dacia"
+                android:paddingLeft="30dp">
+            </Button>
+            <Button
+                android:id="@+id/daciaSandero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/buttonshadow"
+                android:text="Dacia Sandero"
+                android:textSize="22dp"
+                android:drawableLeft="@mipmap/ic_sandero"
+                android:paddingLeft="25dp"
+               >
+            </Button>
+            <Button
+                android:id="@+id/daciaSpring"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/buttonshadow"
+                android:text="Dacia Spring"
+                android:textSize="22dp"
+                android:drawableLeft="@mipmap/spring"
+                android:paddingLeft="25dp"
+                >
+            </Button>
+            <Button
+                android:id="@+id/renaultMegane"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/buttonshadow"
+                android:text="Renault\nMengane"
+                android:textSize="22dp"
+                android:drawableLeft="@mipmap/ic_megane"
+                android:paddingLeft="25dp"
+                >
+            </Button>
+
+            <Button
+                android:id="@+id/renaultKadjar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/buttonshadow"
+                android:drawableLeft="@mipmap/ic_kadjar"
+                android:paddingLeft="22dp"
+                android:text="Renault \nKadjar"
+                android:textSize="25dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/renaultClio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/buttonshadow"
+                android:text="Renault \nClio"
+                android:textSize="22dp"
+                android:drawableLeft="@mipmap/ic_clio"
+                android:paddingLeft="25dp"
+                >
+            </Button>
+            <Button
+                android:id="@+id/fordFocus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/buttonshadow"
+                android:text="Ford Focus"
+                android:textSize="22dp"
+                android:drawableLeft="@mipmap/ic_focus"
+                android:paddingLeft="25dp"
+                >
+            </Button>
+            <Button
+                android:id="@+id/fordFiesta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/buttonshadow"
+                android:text="Ford Fiesta"
+                android:textSize="22dp"
+                android:drawableLeft="@mipmap/ic_fiesta"
+                android:paddingLeft="25dp"
+                >
+            </Button>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
