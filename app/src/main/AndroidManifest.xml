@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.RentSystem">
-        <activity android:name="DetaliiInchiriere.VerificareRezervor"></activity>
-        <activity android:name="DetaliiInchiriere.VerificareKilometrii" />
-        <activity android:name="DetaliiInchiriere.DetaliiClient" />
+        <activity android:name="Retur.FinalRetur"></activity>
+        <activity android:name="DetaliiInchiriere.DetaliiVehiculInchiriat" />
+        <activity android:name="Profil.Profil" />
+        <activity android:name="Profil.LogIn" />
+        <activity android:name="Masini.DaciaLogan.PerioadaInchiriere" />
+        <activity android:name="Masini.DaciaLogan.Modificare_km" />
+        <activity android:name="Masini.DaciaLogan.VerificareRezervor" />
+        <activity android:name="Masini.DaciaLogan.VerificareKilometrii" />
+        <activity android:name="Profil.DetaliiClient" />
         <activity android:name="Masini.FordFiesta" />
         <activity android:name="Masini.FordFocus" />
         <activity android:name="Masini.RenaultClio" />
@@ -19,10 +25,9 @@
         <activity android:name="Masini.RenaultMegane" />
         <activity android:name="Masini.DaciaSpring" />
         <activity android:name="Masini.DaciaSandero" />
-        <activity android:name="Masini.DaciaLogan" />
-        <activity android:name=".main.Inchirieri" />
-        <activity android:name=".main.Retur" />
-        <activity android:name=".main.Inchiriaza" />
+        <activity android:name="Masini.DaciaLogan.DaciaLogan" />
+        <activity android:name="DetaliiInchiriere.Inchirieri" />
+        <activity android:name="DetaliiInchiriere.Inchiriaza" />
         <activity android:name=".main.MainPage" />
         <activity android:name=".main.MainActivity">
             <intent-filter>

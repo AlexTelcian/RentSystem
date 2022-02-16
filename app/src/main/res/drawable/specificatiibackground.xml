@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Gray shadow. -->
-    <!-- White foreground. -->
     <item>
         <shape>
+            <solid android:color="#BABABA"/>
+            <!-- alttan gölge -->
+            <corners android:radius="25dp"/>
+        </shape>
+    </item>
+    <!-- White foreground. -->
+    <item android:bottom="5dp">
+        <shape>
             <corners
-                android:radius="20dp"/>
-            <solid android:color="@color/dimgray"></solid>
+                android:radius="19dp"/>
+            <gradient
+            android:startColor="#694678"
+            android:endColor="#452F4F">
+            </gradient>
         </shape>
     </item>
 </layer-list>

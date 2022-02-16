@@ -4,47 +4,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="DetaliiInchiriere.DetaliiClient">
+    android:background="@color/lightGrey"
+    tools:context="Profil.DetaliiClient">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
-    <EditText
-        android:id="@+id/numeClient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:inputType="textPersonName"
-        android:drawableLeft="@drawable/ic_nume"
-        android:drawablePadding="10dp"
-        android:hint="Nume">
 
-    </EditText>
-    <EditText
-        android:id="@+id/prenumeClient"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="20dp"
-        android:drawableLeft="@drawable/ic_nume"
-        android:drawablePadding="10dp"
-        android:inputType="textPersonName"
-        android:hint="Prenume">
+        android:layout_height="300dp"
+        android:background="@drawable/bottombarbackground">
 
-    </EditText>
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profilePicture"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentLeft="true"
+            app:civ_border_width="0dp"
+            app:civ_border_color="#ffffff"/>
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:paddingTop="20sp"
+            android:shadowColor="#0E0E0E"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="90dp"
+            android:textStyle="bold"
+            android:elevation="8dp"
+            android:text="Alex Telcian"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:paddingTop="20sp"
+            android:shadowColor="#0E0E0E"
+            android:layout_marginLeft="200dp"
+            android:text="alextelcian99@gmail.com"
+            android:layout_marginTop="113dp"
+            android:elevation="8dp"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_marginTop="320dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/adresaCLIENT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:inputType="textCapWords"
+                android:drawableLeft="@drawable/ic_strada"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:drawablePadding="10dp"
+                android:hint="Strada">
+            </EditText>
+            <EditText
+                android:id="@+id/numarCLIENT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="5dp"
+                android:inputType="number"
+                android:drawableLeft="@drawable/ic_numar"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:drawablePadding="10dp"
+                android:hint="Numarul">
+            </EditText>
     <EditText
         android:id="@+id/CNPClient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:inputType="number"
         android:drawableLeft="@drawable/ic_cnp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:drawablePadding="10dp"
         android:hint="CNP">
     </EditText>
@@ -54,9 +110,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:inputType="number"
         android:drawableLeft="@drawable/ic_telefon"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:drawablePadding="10dp"
         android:hint="Telefon">
     </EditText>
@@ -70,10 +128,10 @@
         android:id="@+id/urmator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:text="Urmator"
-        android:background="@color/green"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Salveaza"
+        android:background="@drawable/buttonsalveaza"
         android:textColor="@color/white">
 
     </Button>

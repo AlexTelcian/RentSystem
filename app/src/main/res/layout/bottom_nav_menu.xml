@@ -3,19 +3,23 @@
     android:layout_height="70dp"
     android:layout_width="match_parent">
 
+    <item android:id="@+id/home"
+    android:icon="@drawable/ic_numar"
+    android:title="Acasa"
+    />
     <item android:id="@+id/inchiriazaBTM"
         android:icon="@drawable/ic_rent"
         android:title="Inchiriaza"
         />
 
-    <item android:id="@+id/returBTM"
-        android:icon="@drawable/ic_retur"
-        android:title="Retur"
-        />
-
     <item android:id="@+id/inchirieriBTM"
         android:icon="@drawable/ic_garage"
         android:title="Inchirieri"
+        />
+
+    <item android:id="@+id/profilBTM"
+        android:icon="@drawable/ic_profil"
+        android:title="Profil"
         />
 
 

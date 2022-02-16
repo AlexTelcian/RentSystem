@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Gray shadow. -->
-    <item android:left="5dp" android:top="5dp">
+    <item>
         <shape>
-            <solid android:color="@android:color/darker_gray" />
-            <corners android:radius="10dp" />
+            <solid android:color="#BABABA"/>
+            <!-- alttan gölge -->
+            <corners android:radius="2dp"/>
         </shape>
     </item>
     <!-- White foreground. -->
-    <item android:bottom="5dp" android:right="3dp">
+    <item android:bottom="5dp">
         <shape>
             <corners  android:radius="0dp"/>
             <solid android:color="@color/white"></solid>

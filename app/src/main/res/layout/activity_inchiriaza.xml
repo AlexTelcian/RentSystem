@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CDCCCC"
-    tools:context=".main.Inchiriaza">
+    tools:context="DetaliiInchiriere.Inchiriaza">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -30,9 +30,42 @@
         app:labelVisibilityMode="labeled"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bottombarbackground">
+
+        <TextView
+            android:id="@+id/numeClientAfisat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shadowColor="#0E0E0E"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="Draga ..."
+            android:textColor="@color/white"
+            android:textStyle="bold|italic"
+            android:gravity="center"
+            android:textSize="25dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shadowColor="#0E0E0E"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="Alege din lista de mai jos o masina pe care doresti sa o inchiriezi."
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </LinearLayout>
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp"
         android:layout_marginBottom="70dp">
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,7 +89,7 @@
                 android:id="@+id/daciaSandero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/buttonshadow"
@@ -70,7 +103,7 @@
                 android:id="@+id/daciaSpring"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/buttonshadow"
@@ -84,7 +117,7 @@
                 android:id="@+id/renaultMegane"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/buttonshadow"
@@ -100,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/buttonshadow"
                 android:drawableLeft="@mipmap/ic_kadjar"
@@ -114,7 +147,7 @@
                 android:id="@+id/renaultClio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/buttonshadow"
@@ -128,7 +161,7 @@
                 android:id="@+id/fordFocus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/buttonshadow"
@@ -142,7 +175,7 @@
                 android:id="@+id/fordFiesta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/buttonshadow"
@@ -154,5 +187,4 @@
             </Button>
         </LinearLayout>
     </ScrollView>
-
 </RelativeLayout>
