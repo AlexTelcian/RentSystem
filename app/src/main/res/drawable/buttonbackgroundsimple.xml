@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Gray shadow. -->
+    <!-- White foreground. -->
+    <item>
+        <shape>
+            <corners  android:radius="0dp"/>
+            <gradient
+                android:startColor="#084896"
+                android:endColor="#063166">
+
+            </gradient>
+        </shape>
+    </item>
+</layer-list>
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightGrey"
+    tools:context="Masini.DaciaLogan.PerioadaInchiriere">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottombarbackground"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/numeBrand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Brand"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:paddingTop="20dp"
+                android:paddingLeft="20dp">
+            </TextView>
+            <TextView
+                android:id="@+id/anFabricatie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="an fabricatie"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:paddingLeft="20dp">
+            </TextView>
+            <ImageView
+                android:id="@+id/imagineMasina"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="fitCenter"
+                >
+            </ImageView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="340dp"
+            android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="Data inchirierii"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="22dp">
+
+        </TextView>
+        <TextView
+            android:id="@+id/perioadaStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:background="@color/white"
+            android:textSize="22dp"
+            android:textColor="@color/black"
+            >
+
+        </TextView>
+        <Button
+            android:id="@+id/btnSelect1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Selecteaza"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/buttonbackgroundsimple">
+
+        </Button>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="20dp"
+            android:text="Data Retur"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="22dp">
+
+        </TextView>
+        <TextView
+            android:id="@+id/perioadaFinal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:background="@color/white"
+            android:textSize="22dp"
+            android:textColor="@color/black"
+            >
+
+        </TextView>
+        <Button
+            android:id="@+id/btnSelect2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Selecteaza"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/buttonbackgroundsimple">
+
+        </Button>
+        </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        >
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Salveaza"
+            android:background="@drawable/buttonsalveaza"
+            android:textColor="@color/white">
+
+        </Button>
+    </RelativeLayout>
+</RelativeLayout>
