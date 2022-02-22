@@ -20,4 +20,4 @@ Rent System is a mobile application for the Android platform. The role of the ap
 
 <h3> Languages and Tools </h3>
 
-<img src="Images/java.png" width="60"> <img src="Images/studio.png" width="50"> <img src="Images/android.png" width="50">
+<img src="Images/java.png" width="60"> <img src="Images/studio.png" width="50">     <img src="Images/android.png" width="50">
