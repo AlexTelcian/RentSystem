@@ -22,6 +22,8 @@ import android.widget.TextView;
 
 import com.example.rentsystem.R;
 import com.example.rentsystem.main.MainPage;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,7 +43,7 @@ public class DetaliiVehiculInchiriat extends AppCompatActivity {
 
     private TextView numeView, brandView, anFabView, nrkmView, startView, returView, plataView;
     private Button returBTN;
-    private String nume,brand,anFab,nrKm,start,retur,plata;
+    private String nume,brand,anFab,nrKm,start,retur,plata,numeClientAfisat;
     private ImageView masinaImg;
     private int imgCode;
     private Drawable drawableImg;
@@ -60,22 +62,25 @@ public class DetaliiVehiculInchiriat extends AppCompatActivity {
         masinaImg = findViewById(R.id.imagineMasina);
         returBTN = findViewById(R.id.buttonRetur);
 
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
+        if(signInAccount != null){
+            numeClientAfisat = String.valueOf(signInAccount.getDisplayName());
+        }
+
         DatabaseReference inchiriereDB = FirebaseDatabase.getInstance().getReference("Inchirieri");
         inchiriereDB.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-
-                    if(dataSnapshot.child("inchiriere " + Inchirieri.position).exists()) {
-                        nume = String.valueOf(dataSnapshot.child("inchiriere" + " " + Inchirieri.position).child("nume").getValue(String.class));
-                        anFab = String.valueOf(dataSnapshot.child("inchiriere" + " " + Inchirieri.position).child("an_fabricatie").getValue(String.class));
-                        nrKm = String.valueOf(dataSnapshot.child("inchiriere" + " " + Inchirieri.position).child("nr_km").getValue(String.class));
-                        brand = String.valueOf(dataSnapshot.child("inchiriere" + " " + Inchirieri.position).child("masina_inchiriata").getValue(String.class));
-                        start = String.valueOf(dataSnapshot.child("inchiriere" + " " + Inchirieri.position).child("perioada_start").getValue(String.class));
-                        retur = String.valueOf(dataSnapshot.child("inchiriere" + " " + Inchirieri.position).child("perioada_retur").getValue(String.class));
-                        plata = String.valueOf(dataSnapshot.child("inchiriere" + " " + Inchirieri.position).child("pret").getValue(String.class));
-                        imgCode = Integer.valueOf(dataSnapshot.child("inchiriere" + " " + Inchirieri.position).child("imagine").getValue(Integer.class));
+                        nume = String.valueOf(dataSnapshot.child(numeClientAfisat).child("inchiriere" + " " + Inchirieri.position).child("nume").getValue(String.class));
+                        anFab = String.valueOf(dataSnapshot.child(numeClientAfisat).child("inchiriere" + " " + Inchirieri.position).child("an_fabricatie").getValue(String.class));
+                        nrKm = String.valueOf(dataSnapshot.child(numeClientAfisat).child("inchiriere" + " " + Inchirieri.position).child("nr_km").getValue(String.class));
+                        brand = String.valueOf(dataSnapshot.child(numeClientAfisat).child("inchiriere" + " " + Inchirieri.position).child("masina_inchiriata").getValue(String.class));
+                        start = String.valueOf(dataSnapshot.child(numeClientAfisat).child("inchiriere" + " " + Inchirieri.position).child("perioada_start").getValue(String.class));
+                        retur = String.valueOf(dataSnapshot.child(numeClientAfisat).child("inchiriere" + " " + Inchirieri.position).child("perioada_retur").getValue(String.class));
+                        plata = String.valueOf(dataSnapshot.child(numeClientAfisat).child("inchiriere" + " " + Inchirieri.position).child("pret").getValue(String.class));
+                        imgCode = Integer.valueOf(dataSnapshot.child(numeClientAfisat).child("inchiriere" + " " + Inchirieri.position).child("imagine").getValue(Integer.class));
                         drawableImg = getResources().getDrawable(imgCode);
                         Animation aniFade = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadein);
                         masinaImg.setImageDrawable(drawableImg);
@@ -87,9 +92,6 @@ public class DetaliiVehiculInchiriat extends AppCompatActivity {
                         startView.setText(start);
                         returView.setText(retur);
                         plataView.setText(plata + " lei");
-                    }
-                    else
-                        Inchirieri.position++;
 
                 SimpleDateFormat formatter = new SimpleDateFormat("d/M/yyyy");
                 String time = formatter.format(new Date());

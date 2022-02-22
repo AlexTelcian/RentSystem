@@ -125,6 +125,33 @@ public class Inchiriaza extends AppCompatActivity {
 
         bottomBar();
 
+        DatabaseReference dacia = FirebaseDatabase.getInstance().getReference("Dacia Logan");
+        dacia.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String retur = String.valueOf(dataSnapshot.child("perioada_retur").getValue(String.class));
+                SimpleDateFormat sdf = new SimpleDateFormat("d/M/yyyy");
+                String currentDate = sdf.format(new Date());
+                if(CalculZile(currentDate,retur) > 0) {
+                    daciaLoganBtn.setText("Disponibil \n din data \n" + retur);
+                    daciaLoganBtn.setClickable(false);
+                }
+                else {
+                    daciaLoganBtn.setText("Dacia Logan");
+                    daciaLoganBtn.setClickable(true);
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
     }
 
     private int CalculZile(String ziStart, String ziRetur){

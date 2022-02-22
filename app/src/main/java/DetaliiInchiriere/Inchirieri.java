@@ -29,7 +29,7 @@ import Profil.Profil;
 
 public class Inchirieri extends AppCompatActivity {
 
-    String brand,start,retur,anFab,nrKm;
+    String brand,start,retur,anFab,nrKm,numeComplet;
     TextView textId;
     TextView numeClientAfisat;
     Integer id;
@@ -49,6 +49,7 @@ public class Inchirieri extends AppCompatActivity {
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
         if(signInAccount != null){
             numeClientAfisat.setText("Draga " + signInAccount.getDisplayName() + ",");
+            numeComplet = String.valueOf(signInAccount.getDisplayName());
         }
 
         DatabaseReference inchiriereDB = FirebaseDatabase.getInstance().getReference("Inchirieri");
@@ -80,18 +81,14 @@ public class Inchirieri extends AppCompatActivity {
                 // whenever data at this location is updated.
 
                 for (int i = 0; i<= id; i++) {
-                    if(dataSnapshot.child("inchiriere " + i).exists()) {
-                        anFab = String.valueOf(dataSnapshot.child("inchiriere" + " " + i).child("an_fabricatie").getValue(String.class));
-                        nrKm = String.valueOf(dataSnapshot.child("inchiriere" + " " + i).child("nr_km").getValue(String.class));
-                        brand = String.valueOf(dataSnapshot.child("inchiriere" + " " + i).child("masina_inchiriata").getValue(String.class));
-                        start = String.valueOf(dataSnapshot.child("inchiriere" + " " + i).child("perioada_start").getValue(String.class));
-                        retur = String.valueOf(dataSnapshot.child("inchiriere" + " " + i).child("perioada_retur").getValue(String.class));
+                        anFab = String.valueOf(dataSnapshot.child(numeComplet).child("inchiriere" + " " + i).child("an_fabricatie").getValue(String.class));
+                        nrKm = String.valueOf(dataSnapshot.child(numeComplet).child("inchiriere" + " " + i).child("nr_km").getValue(String.class));
+                        brand = String.valueOf(dataSnapshot.child(numeComplet).child("inchiriere" + " " + i).child("masina_inchiriata").getValue(String.class));
+                        start = String.valueOf(dataSnapshot.child(numeComplet).child("inchiriere" + " " + i).child("perioada_start").getValue(String.class));
+                        retur = String.valueOf(dataSnapshot.child(numeComplet).child("inchiriere" + " " + i).child("perioada_retur").getValue(String.class));
 
                         NouVehiculInchiriat detaliiVehiculInchiriat = new NouVehiculInchiriat(brand, anFab, nrKm, start, retur);
                         addNewItem(detaliiVehiculInchiriat);
-                    }
-                    else
-                        continue;
                 }
             }
 

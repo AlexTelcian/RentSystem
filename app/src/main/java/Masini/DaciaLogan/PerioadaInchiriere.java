@@ -24,6 +24,8 @@ import android.widget.Toast;
 
 import com.example.rentsystem.R;
 import com.example.rentsystem.main.MainActivity;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,8 +43,8 @@ import DetaliiInchiriere.Inchirieri;
 public class PerioadaInchiriere extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
     ImageView img;
-    TextView brandTxt,anFab;
-    String brand,an;
+    TextView brandTxt,anFab,textRetur;
+    String brand,an,numeClientAfisat;
     TextView perioadastart,perioadafinal;
     int index;
     Button selecteazaStart,selecteazaFinal,save;
@@ -52,6 +54,11 @@ public class PerioadaInchiriere extends AppCompatActivity implements DatePickerD
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perioada_inchiriere);
+
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
+        if(signInAccount != null){
+            numeClientAfisat = String.valueOf(signInAccount.getDisplayName());
+        }
 
         img = findViewById(R.id.imagineMasina);
         Animation aniFade = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
@@ -64,6 +71,7 @@ public class PerioadaInchiriere extends AppCompatActivity implements DatePickerD
         save = findViewById(R.id.buttonSave);
         brandTxt = findViewById(R.id.numeBrand);
         anFab = findViewById(R.id.anFabricatie);
+        textRetur = findViewById(R.id.dataReturView);
 
         selecteazaStart.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -125,14 +133,20 @@ public class PerioadaInchiriere extends AppCompatActivity implements DatePickerD
         if(index == 1) {
             dStart = date;
             perioadastart.setText(dStart);
-            inchiriere.child(DaciaLogan.inchiriereNoua).child("perioada_start").setValue(dStart);
+            inchiriere.child(numeClientAfisat).child(DaciaLogan.inchiriereNoua).child("perioada_start").setValue(dStart);
+            textRetur.setVisibility(View.VISIBLE);
+            selecteazaFinal.setVisibility(View.VISIBLE);
+            perioadafinal.setVisibility(View.VISIBLE);
 
         }
 
         if(index == 2) {
             dRetur = date;
             perioadafinal.setText(dRetur);
-            inchiriere.child(DaciaLogan.inchiriereNoua).child("perioada_retur").setValue(dRetur);
+            inchiriere.child(numeClientAfisat).child(DaciaLogan.inchiriereNoua).child("perioada_retur").setValue(dRetur);
+            DatabaseReference logan = FirebaseDatabase.getInstance().getReference("Dacia Logan");
+            logan.child("perioada_retur").setValue(dRetur);
+            save.setVisibility(View.VISIBLE);
 
         }
         save.setOnClickListener(new View.OnClickListener() {
@@ -150,7 +164,7 @@ public class PerioadaInchiriere extends AppCompatActivity implements DatePickerD
                         int days = CalculZile(dStart,dRetur);
                         pret = pret * days;
                         pretStr = String.valueOf(pret);
-                        inchiriere.child(DaciaLogan.inchiriereNoua).child("pret").setValue(pretStr);
+                        inchiriere.child(numeClientAfisat).child(DaciaLogan.inchiriereNoua).child("pret").setValue(pretStr);
                     }
 
                     @Override

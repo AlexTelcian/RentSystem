@@ -134,7 +134,7 @@ public class DaciaLogan extends AppCompatActivity {
         selectMasina.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                inchiriere.child(inchiriereNoua).setValue(new InchiriereNoua(imgCode,nume,cnp,telefon,brand,anFab,km,"","",pretStr));
+                inchiriere.child(numeComplet).child(inchiriereNoua).setValue(new InchiriereNoua(imgCode,nume,cnp,telefon,brand,anFab,km,"","",pretStr));
                 id++;
                 openNewActivityselectareMasina();
             }
