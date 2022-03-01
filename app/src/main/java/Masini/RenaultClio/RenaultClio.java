@@ -1,4 +1,4 @@
-package Masini.DaciaLogan;
+package Masini.RenaultClio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.rentsystem.R;
-import DetaliiInchiriere.InchiriereNoua;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.database.DataSnapshot;
@@ -22,7 +21,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class DaciaLogan extends AppCompatActivity {
+import DetaliiInchiriere.InchiriereNoua;
+import Masini.DaciaLogan.DaciaLogan;
+
+public class RenaultClio extends AppCompatActivity {
 
     TextView brandTxt,anFabricatieTxt,capacitateTxt,cutieVitezeTxt,numarLocuriTxt,capaciteteRezervorTxt,numarKmTxt,combustibilTxt,pretInchiriereTxt;
     ImageView masinaImg;
@@ -54,13 +56,12 @@ public class DaciaLogan extends AppCompatActivity {
             numeComplet = String.valueOf(signInAccount.getDisplayName());
         }
 
-        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Dacia Logan");
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Renault Clio");
         DatabaseReference index = FirebaseDatabase.getInstance().getReference("indexClient");
         DatabaseReference inchiriere = FirebaseDatabase.getInstance().getReference("Inchirieri");
         DatabaseReference clientDB = FirebaseDatabase.getInstance().getReference("Clienti");
 
-        myRef.child("Pret").setValue("100");
-        myRef.child("Imagine").setValue(R.mipmap.ic_dacia);
+        myRef.child("Imagine").setValue(R.mipmap.ic_clio);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -94,7 +95,7 @@ public class DaciaLogan extends AppCompatActivity {
                 // whenever data at this location is updated.
                 id = Integer.valueOf(dataSnapshot.child(numeComplet).child("index").getValue(Integer.class));
 
-                inchiriereNoua = "inchiriere" + " " + DaciaLogan.id;
+                inchiriereNoua = "inchiriere" + " " + RenaultClio.id;
             }
 
             @Override
@@ -126,8 +127,8 @@ public class DaciaLogan extends AppCompatActivity {
         capacitateTxt.setText("1.5 dCi");
         cutieVitezeTxt.setText("Manual");
         numarLocuriTxt.setText("5");
-        capaciteteRezervorTxt.setText("60L");
-        pretInchiriereTxt.setText("100 Lei");
+        capaciteteRezervorTxt.setText("50L");
+        pretInchiriereTxt.setText("300 Lei");
         combustibilTxt.setText("Diesel" +
                 "");
 

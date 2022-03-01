@@ -5,10 +5,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,12 +31,13 @@ import Profil.Profil;
 
 public class Inchirieri extends AppCompatActivity {
 
-    String brand,start,retur,anFab,nrKm,numeComplet;
-    TextView textId;
-    TextView numeClientAfisat;
-    Integer id;
+    private String brand,start,retur,anFab,nrKm,numeComplet;
+    private TextView textId;
+    private TextView numeClientAfisat;
+    private Integer id,imgCode;
     ListView listView;
     public static int position;
+    private Drawable imgDrawable;
     ArrayList<NouVehiculInchiriat> detaliiVehiculInchiriat = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +56,13 @@ public class Inchirieri extends AppCompatActivity {
         }
 
         DatabaseReference inchiriereDB = FirebaseDatabase.getInstance().getReference("Inchirieri");
-        final DatabaseReference[] index = {FirebaseDatabase.getInstance().getReference("Index")};
+        final DatabaseReference[] index = {FirebaseDatabase.getInstance().getReference("indexClient")};
         index[0].addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                id = Integer.valueOf(dataSnapshot.getValue(Integer.class));
+                id = Integer.valueOf(dataSnapshot.child(numeComplet).child("index").getValue(Integer.class));
                 id--;
 
                 if(id < 0)
@@ -86,8 +89,9 @@ public class Inchirieri extends AppCompatActivity {
                         brand = String.valueOf(dataSnapshot.child(numeComplet).child("inchiriere" + " " + i).child("masina_inchiriata").getValue(String.class));
                         start = String.valueOf(dataSnapshot.child(numeComplet).child("inchiriere" + " " + i).child("perioada_start").getValue(String.class));
                         retur = String.valueOf(dataSnapshot.child(numeComplet).child("inchiriere" + " " + i).child("perioada_retur").getValue(String.class));
-
-                        NouVehiculInchiriat detaliiVehiculInchiriat = new NouVehiculInchiriat(brand, anFab, nrKm, start, retur);
+                        imgCode = Integer.valueOf(dataSnapshot.child(numeComplet).child("inchiriere" + " " + i).child("imagine").getValue(Integer.class));
+                        imgDrawable = getResources().getDrawable(imgCode);
+                        NouVehiculInchiriat detaliiVehiculInchiriat = new NouVehiculInchiriat(imgDrawable,brand, anFab, nrKm, start, retur);
                         addNewItem(detaliiVehiculInchiriat);
                 }
             }

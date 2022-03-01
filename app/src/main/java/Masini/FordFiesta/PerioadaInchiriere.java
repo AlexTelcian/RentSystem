@@ -1,18 +1,10 @@
-package Masini.DaciaLogan;
+package Masini.FordFiesta;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
 
 import android.app.DatePickerDialog;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -20,10 +12,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.rentsystem.R;
-import com.example.rentsystem.main.MainActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.database.DataSnapshot;
@@ -36,7 +26,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
-import java.util.Date;
 
 import DetaliiInchiriere.Inchirieri;
 
@@ -62,7 +51,7 @@ public class PerioadaInchiriere extends AppCompatActivity implements DatePickerD
 
         img = findViewById(R.id.imagineMasina);
         Animation aniFade = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
-        img.setImageResource(R.mipmap.ic_dacia);
+        img.setImageResource(R.mipmap.ic_fiesta);
         img.startAnimation(aniFade);
         selecteazaStart = findViewById(R.id.btnSelect1);
         selecteazaFinal = findViewById(R.id.btnSelect2);
@@ -86,7 +75,7 @@ public class PerioadaInchiriere extends AppCompatActivity implements DatePickerD
             }
         });
 
-        DatabaseReference logan = FirebaseDatabase.getInstance().getReference("Dacia Logan");
+        DatabaseReference logan = FirebaseDatabase.getInstance().getReference("Ford Fiesta");
 
         logan.addValueEventListener(new ValueEventListener() {
             @Override
@@ -160,14 +149,14 @@ public class PerioadaInchiriere extends AppCompatActivity implements DatePickerD
             dRetur = date;
             perioadafinal.setText(dRetur);
             inchiriere.child(numeClientAfisat).child("inchiriere " + id).child("perioada_retur").setValue(dRetur);
-            DatabaseReference logan = FirebaseDatabase.getInstance().getReference("Dacia Logan");
+            DatabaseReference logan = FirebaseDatabase.getInstance().getReference("Ford Fiesta");
             logan.child("perioada_retur").setValue(dRetur);
             save.setVisibility(View.VISIBLE);
             id++;
         }
         save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DatabaseReference logan = FirebaseDatabase.getInstance().getReference("Dacia Logan");
+                DatabaseReference logan = FirebaseDatabase.getInstance().getReference("Ford Fiesta");
                 logan.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {

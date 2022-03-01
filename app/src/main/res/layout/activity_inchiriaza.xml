@@ -139,7 +139,7 @@
                 android:drawableLeft="@mipmap/ic_kadjar"
                 android:paddingLeft="22dp"
                 android:text="Renault \nKadjar"
-                android:textSize="25dp">
+                android:textSize="22dp">
 
             </Button>
 

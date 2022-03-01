@@ -53,6 +53,7 @@ public class DetaliiClient extends AppCompatActivity {
             name.setText(signInAccount.getDisplayName());
             numeComplet = String.valueOf(signInAccount.getDisplayName());
             indexClientDB.child(numeComplet).child("indexClient").setValue(0);
+            indexClientDB.child(numeComplet).child("index").setValue(0);
             uriimg = signInAccount.getPhotoUrl().toString();
             Glide.with(getApplicationContext()).load(uriimg)
                     .thumbnail(0.5f)

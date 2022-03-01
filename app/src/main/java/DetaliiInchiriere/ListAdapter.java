@@ -1,6 +1,7 @@
 package DetaliiInchiriere;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,6 @@ import java.util.ArrayList;
 import DetaliiInchiriere.NouVehiculInchiriat;
 
 public class ListAdapter extends ArrayAdapter<NouVehiculInchiriat> {
-
     public ListAdapter(Context context, ArrayList<NouVehiculInchiriat> listVehiculInchiriat ){
         super(context, R.layout.list_item,listVehiculInchiriat);
 
@@ -36,7 +36,7 @@ public class ListAdapter extends ArrayAdapter<NouVehiculInchiriat> {
         TextView numeVehicul = convertView.findViewById(R.id.numeVehicul);
         TextView anFabVehicul = convertView.findViewById(R.id.anVehicul);
 
-        imgView.setImageResource(R.mipmap.ic_dacia);
+        imgView.setImageDrawable(detaliiVehiculInchiriat.imgDrawable);
         numeVehicul.setText(detaliiVehiculInchiriat.brand);
         anFabVehicul.setText(detaliiVehiculInchiriat.anFab);
 

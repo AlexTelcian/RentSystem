@@ -38,6 +38,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import Masini.DaciaLogan.Modificare_km;
+import Masini.DaciaSpring.DaciaSpring;
 
 public class DetaliiVehiculInchiriat extends AppCompatActivity {
 
@@ -152,7 +153,37 @@ public class DetaliiVehiculInchiriat extends AppCompatActivity {
     }
 
     public void openNewActivityRetur(){
-        Intent intent = new Intent(this, Modificare_km.class);
-        startActivity(intent);
+        if(brand.equals("Dacia Logan")) {
+            Intent intent = new Intent(this, Modificare_km.class);
+            startActivity(intent);
+        }
+        if(brand.equals("Dacia Sandero")) {
+            Intent intent = new Intent(this, Masini.DaciaSandero.Modificare_km.class);
+            startActivity(intent);
+        }
+        if(brand.equals("Dacia Spring")) {
+            Intent intent = new Intent(this, Masini.DaciaSpring.Modificare_km.class);
+            startActivity(intent);
+        }
+        if(brand.equals("Ford Fiesta")) {
+            Intent intent = new Intent(this, Masini.FordFiesta.Modificare_km.class);
+            startActivity(intent);
+        }
+        if(brand.equals("Ford Focus")) {
+            Intent intent = new Intent(this, Masini.FordFocus.Modificare_km.class);
+            startActivity(intent);
+        }
+        if(brand.equals("Renault Clio")) {
+            Intent intent = new Intent(this, Masini.RenaultClio.Modificare_km.class);
+            startActivity(intent);
+        }
+        if(brand.equals("Renault Kadjar")) {
+            Intent intent = new Intent(this, Masini.RenaultKadjar.Modificare_km.class);
+            startActivity(intent);
+        }
+        if(brand.equals("Renault Megane")) {
+            Intent intent = new Intent(this, Masini.RenaultMegane.Modificare_km.class);
+            startActivity(intent);
+        }
     }
 }

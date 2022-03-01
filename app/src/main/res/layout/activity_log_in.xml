@@ -58,7 +58,7 @@
             android:drawableLeft="@mipmap/google_ic"
             android:elevation="8dp"
             android:text="Google"
-            android:paddingRight="80dp"
+            android:paddingRight="90dp"
             android:textColor="#fff" />
     </LinearLayout>
 </ScrollView>

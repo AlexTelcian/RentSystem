@@ -1,4 +1,4 @@
-package Masini.DaciaLogan;
+package Masini.DaciaSandero;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.rentsystem.R;
-import DetaliiInchiriere.InchiriereNoua;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.database.DataSnapshot;
@@ -22,16 +21,20 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class DaciaLogan extends AppCompatActivity {
+import DetaliiInchiriere.InchiriereNoua;
+import Masini.DaciaLogan.DaciaLogan;
 
-    TextView brandTxt,anFabricatieTxt,capacitateTxt,cutieVitezeTxt,numarLocuriTxt,capaciteteRezervorTxt,numarKmTxt,combustibilTxt,pretInchiriereTxt;
+public class DaciaSandero extends AppCompatActivity {
+
+    TextView brandTxt, anFabricatieTxt, capacitateTxt, cutieVitezeTxt, numarLocuriTxt, capaciteteRezervorTxt, numarKmTxt, combustibilTxt, pretInchiriereTxt;
     ImageView masinaImg;
     Button selectMasina;
-    public String brand,km,anFab,pretStr,nume,cnp,telefon,numeComplet;
+    public String brand, km, anFab, pretStr, nume, cnp, telefon, numeComplet;
     public static String inchiriereNoua;
     public static Integer id;
     int imgCode;
     Drawable drawableImg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,17 +53,16 @@ public class DaciaLogan extends AppCompatActivity {
         pretInchiriereTxt = findViewById(R.id.pretinchiriere);
 
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
-        if(signInAccount != null){
+        if (signInAccount != null) {
             numeComplet = String.valueOf(signInAccount.getDisplayName());
         }
 
-        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Dacia Logan");
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Dacia Sandero");
         DatabaseReference index = FirebaseDatabase.getInstance().getReference("indexClient");
         DatabaseReference inchiriere = FirebaseDatabase.getInstance().getReference("Inchirieri");
         DatabaseReference clientDB = FirebaseDatabase.getInstance().getReference("Clienti");
 
-        myRef.child("Pret").setValue("100");
-        myRef.child("Imagine").setValue(R.mipmap.ic_dacia);
+        myRef.child("Imagine").setValue(R.mipmap.ic_sandero);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -75,7 +77,7 @@ public class DaciaLogan extends AppCompatActivity {
                 imgCode = Integer.valueOf(dataSnapshot.child("Imagine").getValue(Integer.class));
 
                 drawableImg = getResources().getDrawable(imgCode);
-                Animation aniFade = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
+                Animation aniFade = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadein);
                 masinaImg.setImageDrawable(drawableImg);
                 masinaImg.startAnimation(aniFade);
             }
@@ -94,7 +96,7 @@ public class DaciaLogan extends AppCompatActivity {
                 // whenever data at this location is updated.
                 id = Integer.valueOf(dataSnapshot.child(numeComplet).child("index").getValue(Integer.class));
 
-                inchiriereNoua = "inchiriere" + " " + DaciaLogan.id;
+                inchiriereNoua = "inchiriere" + " " + DaciaSandero.id;
             }
 
             @Override
@@ -122,26 +124,27 @@ public class DaciaLogan extends AppCompatActivity {
 
             }
         });
-        anFabricatieTxt.setText("2015");
-        capacitateTxt.setText("1.5 dCi");
+        anFabricatieTxt.setText("2016");
+        capacitateTxt.setText("0.9 TCE");
         cutieVitezeTxt.setText("Manual");
         numarLocuriTxt.setText("5");
-        capaciteteRezervorTxt.setText("60L");
+        capaciteteRezervorTxt.setText("50L");
         pretInchiriereTxt.setText("100 Lei");
-        combustibilTxt.setText("Diesel" +
+        combustibilTxt.setText("Benzina" +
                 "");
 
         selectMasina.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                inchiriere.child(numeComplet).child(inchiriereNoua).setValue(new InchiriereNoua(imgCode,nume,cnp,telefon,brand,anFab,km,"","",pretStr));
+                inchiriere.child(numeComplet).child(inchiriereNoua).setValue(new InchiriereNoua(imgCode, nume, cnp, telefon, brand, anFab, km, "", "", pretStr));
                 id++;
                 openNewActivityselectareMasina();
             }
         });
 
     }
-    public void openNewActivityselectareMasina(){
+
+    public void openNewActivityselectareMasina() {
         Intent intent = new Intent(this, VerificareKilometrii.class);
         startActivity(intent);
     }

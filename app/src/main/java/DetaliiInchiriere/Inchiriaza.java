@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -31,13 +29,13 @@ import java.util.Date;
 
 import Profil.Profil;
 import Masini.DaciaLogan.DaciaLogan;
-import Masini.DaciaSandero;
-import Masini.DaciaSpring;
-import Masini.FordFiesta;
-import Masini.FordFocus;
-import Masini.RenaultClio;
-import Masini.RenaultKadjar;
-import Masini.RenaultMegane;
+import Masini.DaciaSandero.DaciaSandero;
+import Masini.DaciaSpring.DaciaSpring;
+import Masini.FordFiesta.FordFiesta;
+import Masini.FordFocus.FordFocus;
+import Masini.RenaultClio.RenaultClio;
+import Masini.RenaultKadjar.RenaultKadjar;
+import Masini.RenaultMegane.RenaultMegane;
 
 public class Inchiriaza extends AppCompatActivity {
 
@@ -124,7 +122,17 @@ public class Inchiriaza extends AppCompatActivity {
         });
 
         bottomBar();
+        DaciaLoganDisponibilitate();
+        DaciaSanderoDisponibilitate();
+        DaciaSpringDisponibilitate();
+        FordFiestaDisponibilitate();
+        FordFocusDisponibilitate();
+        RenaultClioDisponibilitate();
+        RenaultKadjarDisponibilitate();
+        RenaultMeganeDisponibilitate();
+    }
 
+    private void DaciaLoganDisponibilitate(){
         DatabaseReference dacia = FirebaseDatabase.getInstance().getReference("Dacia Logan");
         dacia.addValueEventListener(new ValueEventListener() {
             @Override
@@ -153,7 +161,209 @@ public class Inchiriaza extends AppCompatActivity {
             }
         });
     }
+    private void DaciaSanderoDisponibilitate(){
+        DatabaseReference dacia = FirebaseDatabase.getInstance().getReference("Dacia Sandero");
+        dacia.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String retur = String.valueOf(dataSnapshot.child("perioada_retur").getValue(String.class));
+                SimpleDateFormat sdf = new SimpleDateFormat("d/M/yyyy");
+                String currentDate = sdf.format(new Date());
+                if(CalculZile(currentDate,retur) > 0) {
+                    daciaSanderobtn.setText("Disponibil \n din data \n" + retur);
+                    daciaSanderobtn.setClickable(false);
+                }
+                else {
+                    daciaSanderobtn.setText("Dacia Sandero");
+                    daciaSanderobtn.setClickable(true);
+                }
 
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
+    }
+    private void DaciaSpringDisponibilitate(){
+        DatabaseReference dacia = FirebaseDatabase.getInstance().getReference("Dacia Spring");
+        dacia.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String retur = String.valueOf(dataSnapshot.child("perioada_retur").getValue(String.class));
+                SimpleDateFormat sdf = new SimpleDateFormat("d/M/yyyy");
+                String currentDate = sdf.format(new Date());
+                if(CalculZile(currentDate,retur) > 0) {
+                    daciaSpringbtn.setText("Disponibil \n din data \n" + retur);
+                    daciaSpringbtn.setClickable(false);
+                }
+                else {
+                    daciaSpringbtn.setText("Dacia Spring");
+                    daciaSpringbtn.setClickable(true);
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
+    }
+    private void FordFiestaDisponibilitate(){
+        DatabaseReference dacia = FirebaseDatabase.getInstance().getReference("Ford Fiesta");
+        dacia.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String retur = String.valueOf(dataSnapshot.child("perioada_retur").getValue(String.class));
+                SimpleDateFormat sdf = new SimpleDateFormat("d/M/yyyy");
+                String currentDate = sdf.format(new Date());
+                if(CalculZile(currentDate,retur) > 0) {
+                    fordFiestabtn.setText("Disponibil \n din data \n" + retur);
+                    fordFiestabtn.setClickable(false);
+                }
+                else {
+                    fordFiestabtn.setText("Ford Fiesta");
+                    fordFiestabtn.setClickable(true);
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
+    }
+    private void FordFocusDisponibilitate(){
+        DatabaseReference dacia = FirebaseDatabase.getInstance().getReference("Ford Focus");
+        dacia.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String retur = String.valueOf(dataSnapshot.child("perioada_retur").getValue(String.class));
+                SimpleDateFormat sdf = new SimpleDateFormat("d/M/yyyy");
+                String currentDate = sdf.format(new Date());
+                if(CalculZile(currentDate,retur) > 0) {
+                    fordFocusbtn.setText("Disponibil \n din data \n" + retur);
+                    fordFocusbtn.setClickable(false);
+                }
+                else {
+                    fordFocusbtn.setText("Ford Focus");
+                    fordFocusbtn.setClickable(true);
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
+    }
+    private void RenaultClioDisponibilitate(){
+        DatabaseReference dacia = FirebaseDatabase.getInstance().getReference("Renault Clio");
+        dacia.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String retur = String.valueOf(dataSnapshot.child("perioada_retur").getValue(String.class));
+                SimpleDateFormat sdf = new SimpleDateFormat("d/M/yyyy");
+                String currentDate = sdf.format(new Date());
+                if(CalculZile(currentDate,retur) > 0) {
+                    renaultCliebtn.setText("Disponibil \n din data \n" + retur);
+                   renaultCliebtn.setClickable(false);
+                }
+                else {
+                    renaultCliebtn.setText("Renault Clio");
+                    renaultCliebtn.setClickable(true);
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
+    }
+    private void RenaultKadjarDisponibilitate(){
+        DatabaseReference dacia = FirebaseDatabase.getInstance().getReference("Renault Kadjar");
+        dacia.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String retur = String.valueOf(dataSnapshot.child("perioada_retur").getValue(String.class));
+                SimpleDateFormat sdf = new SimpleDateFormat("d/M/yyyy");
+                String currentDate = sdf.format(new Date());
+                if(CalculZile(currentDate,retur) > 0) {
+                    renaultKadjarbtn.setText("Disponibil \n din data \n" + retur);
+                    renaultKadjarbtn.setClickable(false);
+                }
+                else {
+                    renaultKadjarbtn.setText("Renault Kadjar");
+                    renaultKadjarbtn.setClickable(true);
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
+    }
+    private void RenaultMeganeDisponibilitate(){
+        DatabaseReference dacia = FirebaseDatabase.getInstance().getReference("Renault Megane");
+        dacia.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String retur = String.valueOf(dataSnapshot.child("perioada_retur").getValue(String.class));
+                SimpleDateFormat sdf = new SimpleDateFormat("d/M/yyyy");
+                String currentDate = sdf.format(new Date());
+                if(CalculZile(currentDate,retur) > 0) {
+                    renaultMeganebtn.setText("Disponibil \n din data \n" + retur);
+                    renaultMeganebtn.setClickable(false);
+                }
+                else {
+                    renaultMeganebtn.setText("Renault Megane");
+                    renaultMeganebtn.setClickable(true);
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
+    }
     private int CalculZile(String ziStart, String ziRetur){
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yyyy");
